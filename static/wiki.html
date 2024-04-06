@@ -2,23 +2,27 @@
 <html lang="en">
 
 <head>
+    <!-- Meta charset and viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 引入 Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Title and custom JavaScript -->
     <title>Data Feature Visualization</title>
-    <!-- 引入自定义的 JavaScript 文件 -->
     <script src="main.js" defer></script>
 </head>
 
 <body>
+    <!-- Header -->
     <header class="bg-primary text-white text-center py-3">
         <h1>Data Feature Visualization Dashboard</h1>
     </header>
 
+    <!-- Main section -->
     <section class="container my-4">
         <div class="container my-4">
             <div class="row">
+                <!-- Feature selection dropdown -->
                 <div class="col-lg-3 mb-3">
                     <label for="feature-selection" class="form-label">Choose a Data Feature:</label>
                     <select id="feature-selection" name="feature-selection" class="form-control">
@@ -32,33 +36,33 @@
                     </select>
                 </div>
 
-
+                <!-- Start date input -->
                 <div class="col-lg-3 mb-3">
                     <label for="start-date" class="form-label">Start Date:</label>
                     <input type="date" id="start-date" name="start-date" class="form-control">
                 </div>
 
+                <!-- End date input -->
                 <div class="col-lg-3 mb-3">
                     <label for="end-date" class="form-label">End Date:</label>
                     <input type="date" id="end-date" name="end-date" class="form-control">
                 </div>
 
+                <!-- Submit button -->
                 <div class="d-flex align-items-end mb-3">
                     <button id="submit-btn" class="btn btn-primary w-100">Show Data</button>
                 </div>
             </div>
         </div>
-
     </section>
 
+    <!-- Container for chart images -->
     <div class="container mb-5">
-        <!-- 用于展示从后端接收的图表图片 -->
         <div id="myChart" style="text-align: center;">
-            <!-- 图表图片将被放置在这里 -->
         </div>
     </div>
 
-    <!-- 引入 Bootstrap JS, Popper.js, 和 jQuery -->
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
