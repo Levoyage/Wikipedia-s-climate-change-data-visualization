@@ -8,8 +8,14 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# 加载和预处理数据
-df_features_scores = pd.read_csv('https://public-paws.wmcloud.org/User:Pablo%20(WMF)/outreachy/round28/features_scores_climatechange_2022.csv.zip')
+
+csv_url = 'https://public-paws.wmcloud.org/User:Pablo%20(WMF)/outreachy/round28/features_scores_climatechange_2022.csv.zip'
+
+response = requests.get(csv_url)
+response.raise_for_status()  
+csv_content = response.content.decode('utf-8')
+
+df_features_scores = pd.read_csv(io.StringIO(csv_content))
 df_features_scores['revision_timestamp'] = pd.to_datetime(df_features_scores['revision_timestamp'], utc=True)
 df_features_scores.set_index('revision_timestamp', inplace=True)
 
