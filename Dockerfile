@@ -15,4 +15,4 @@ RUN adduser --disabled-password --gecos '' myappuser
 USER myappuser
 
 # 启动命令，启用uWSGI的主进程管理器并以非root用户运行
-CMD ["uwsgi", "--http", "0.0.0.0:5000", "--module", "backend:app", "--master", "--processes", "1", "--threads", "8"]
+CMD ["uwsgi", "--http", "0.0.0.0:5000", "--module", "app:app", "--master", "--processes", "1", "--threads", "8"]
