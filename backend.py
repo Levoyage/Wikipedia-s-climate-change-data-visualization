@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import io
 import requests
+import chardet
 
 app = Flask(__name__)
 
@@ -12,7 +13,11 @@ csv_url = 'https://public-paws.wmcloud.org/User:Pablo%20(WMF)/outreachy/round28/
 
 response = requests.get(csv_url)
 response.raise_for_status()  
-csv_content = response.content.decode('utf-8')
+# 使用chardet自动检测编码
+detected_encoding = chardet.detect(response.content)['encoding']
+
+# 使用检测到的编码解码响应内容
+csv_content = response.content.decode(detected_encoding)
 
 df_features_scores = pd.read_csv(io.StringIO(csv_content))
 df_features_scores['revision_timestamp'] = pd.to_datetime(df_features_scores['revision_timestamp'], utc=True)
