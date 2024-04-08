@@ -1,18 +1,22 @@
+# Use the official Python 3.8 image as the base image
 FROM python:3.8
 
+# Set the working directory inside the container to /app
 WORKDIR /app
 
-# 复制应用文件
+# Copy the application files from the host machine to the container's working directory
 COPY . /app
 
-# 安装依赖
-RUN pip install Flask uwsgi pandas flask_cors pytz matplotlib
+# Install dependencies using pip
+RUN pip requests install Flask uwsgi pandas flask_cors pytz matplotlib
 
-# 创建非root用户，这里我们创建一个名为 "myappuser" 的用户
+# Create a non-root user named "myappuser" with no password and no additional information
 RUN adduser --disabled-password --gecos '' myappuser
 
-# 切换到非root用户
+# Switch to the non-root user "myappuser"
 USER myappuser
 
-# 启动命令，启用uWSGI的主进程管理器并以非root用户运行
+# Command to run when the container starts:
+# Start uWSGI with the main process manager, bind it to port 5000, use the specified module "backend:app",
+# run with a single master process, and utilize 8 threads
 CMD ["uwsgi", "--http", "0.0.0.0:5000", "--module", "app:app", "--master", "--processes", "1", "--threads", "8"]
