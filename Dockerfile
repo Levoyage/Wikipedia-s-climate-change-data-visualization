@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install dependencies using pip
-RUN pip install requests Flask uwsgi pandas flask_cors pytz matplotlib
+RUN pip install chardet requests Flask uwsgi pandas flask_cors pytz matplotlib
 
 # Create a non-root user named "myappuser" with no password and no additional information
 RUN adduser --disabled-password --gecos '' myappuser
