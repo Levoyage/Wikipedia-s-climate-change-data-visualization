@@ -1,4 +1,4 @@
-#Data visualization for the evolution of Wikipedia articles maintained by WikiProjects
+# Data visualization for the evolution of Wikipedia articles maintained by WikiProjects
 
 This project encompasses a web application designed to visualize time-series data related to Wikipedia's climate change articles, offering insights into content growth, interconnectedness, and information depth over time. The application utilizes a variety of technologies and structures, outlined as follows:
 
