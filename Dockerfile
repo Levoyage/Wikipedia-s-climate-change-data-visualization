@@ -19,4 +19,4 @@ USER myappuser
 # Command to run when the container starts:
 # Start uWSGI with the main process manager, bind it to port 5000, use the specified module "backend:app",
 # run with a single master process, and utilize 8 threads
-CMD ["uwsgi", "--http", "0.0.0.0:5000", "--module", "app:app", "--master", "--processes", "1", "--threads", "8"]
+CMD ["uwsgi", "--http", "0.0.0.0:5000", "--module", "backend:app", "--master", "--processes", "1", "--threads", "8"]
